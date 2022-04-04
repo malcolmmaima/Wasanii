@@ -1,4 +1,4 @@
-package com.tengenezalabs.wasanii.ui.home
+package com.tengenezalabs.wasanii.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
