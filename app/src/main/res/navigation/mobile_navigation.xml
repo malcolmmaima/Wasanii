@@ -11,15 +11,14 @@
         android:label="@string/menu_home"
         tools:layout="@layout/home_fragment" />
 
-
     <fragment
-        android:id="@+id/nav_search_events"
+        android:id="@+id/nav_search"
         android:name="com.tengenezalabs.wasanii.ui.search.SearchFragment"
         android:label="@string/menu_search"
         tools:layout="@layout/search_fragment" />
 
     <fragment
-        android:id="@+id/nave_notifications"
+        android:id="@+id/nav_notifications"
         android:name="com.tengenezalabs.wasanii.ui.notifications.NotificationsFragment"
         android:label="@string/menu_notifications"
         tools:layout="@layout/notifications_fragment" />
