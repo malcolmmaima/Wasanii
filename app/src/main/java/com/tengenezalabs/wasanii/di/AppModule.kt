@@ -2,6 +2,9 @@ package com.todoist_android.data.di
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.tengenezalabs.wasanii.BuildConfig
+import com.tengenezalabs.wasanii.data.api.EventsApi
+import com.tengenezalabs.wasanii.data.respository.EventsRepository
+import com.tengenezalabs.wasanii.data.respository.EventsRepositoryImpl
 import com.tengenezalabs.wasanii.utils.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -43,4 +46,14 @@ object AppModule {
         .client(okHttpClient)
         .baseUrl(BASE_URL)
         .build()
+
+    @Singleton
+    @Provides
+    fun apiService(retrofit: Retrofit): EventsApi =
+        retrofit.create(EventsApi::class.java)
+
+
+    @Singleton
+    @Provides
+    fun provideEventsRepo(eventsApi: EventsApi): EventsRepository = EventsRepositoryImpl(eventsApi)
 }

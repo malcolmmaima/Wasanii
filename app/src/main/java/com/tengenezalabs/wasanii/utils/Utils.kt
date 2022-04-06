@@ -5,7 +5,7 @@ import android.net.ConnectivityManager
 import android.view.View
 import com.google.android.material.snackbar.Snackbar
 
-const val BASE_URL = "#"
+const val BASE_URL = "https://www.toptal.com/developers/feed2json/"
 
 fun isNetworkAvailable(context: Context): Boolean {
     val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
