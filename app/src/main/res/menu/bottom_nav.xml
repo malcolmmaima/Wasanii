@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Home"
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home_black_48dp"/>
+    <item android:title="Search"
+        android:id="@+id/nav_search"
+        android:icon="@drawable/ic_baseline_search_24"/>
+    <item android:title="Notifications"
+        android:id="@+id/nav_notifications"
+        android:icon="@drawable/ic_notifications_black_24dp"/>
+    <item android:title="Profile"
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_baseline_account_circle_24"/>
+</menu>
