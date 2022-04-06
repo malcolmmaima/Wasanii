@@ -17,6 +17,7 @@ import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import com.tengenezalabs.wasanii.R
 import com.tengenezalabs.wasanii.data.responses.Event
+import com.tengenezalabs.wasanii.utils.BASE_URL
 import org.jsoup.Jsoup
 import org.w3c.dom.Document
 import org.w3c.dom.Element
@@ -26,7 +27,8 @@ class EventsAdapter(context: Context, listdata: List<Event>) :
     RecyclerView.Adapter<EventsAdapter.MyHolder>() {
     var context: Context = context
     var listdata: List<Event> = listdata
-    var DURATION: Long = 200
+    private var DURATION: Long = 200
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -38,40 +40,48 @@ class EventsAdapter(context: Context, listdata: List<Event>) :
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         val eventModel: Event = listdata[position]
-        /**
-         * Adapter animation
-         */
-        setAnimation(holder.itemView, position)
-        /**
-         * Set widget values
-         */
-        holder.eventTitle.text = eventModel.title
 
-        /**
-         * Click listener on our card
-         */
-        holder.cardView.setOnClickListener {
-            Toast.makeText(context, eventModel.title, Toast.LENGTH_SHORT).show()
-        }
+        if(eventModel != null){
+            /**
+             * Adapter animation
+             */
+            setAnimation(holder.itemView, position)
+            /**
+             * Set widget values
+             */
+            holder.eventTitle.text = eventModel.title
 
-        /**
-         * Load image url onto imageview
-         */
+            /**
+             * Click listener on our card
+             */
+            holder.cardView.setOnClickListener {
+                Toast.makeText(context, eventModel.title, Toast.LENGTH_SHORT).show()
+            }
 
-        try {
-            Picasso.get()
-                .load(getCoverImage(eventModel.content_html))
-                .error(R.drawable.default_event)
-                .into(holder.eventImage, object : Callback {
-                    override fun onSuccess() {
-                        //
-                    }
-                    override fun onError(e: Exception?) {
-                        Log.e("Error Loading Image: ", e.toString())
-                    }
-                })
-        } catch (e: Exception) {
-            e.message?.let { Log.e("Error", it) }
+            /**
+             * Load image url onto imageview
+             */
+
+            try {
+                if(getCoverImage(eventModel.content_html).isNullOrBlank()) {
+                    holder.eventImage.setImageResource(R.drawable.default_event)
+                } else {
+                    Picasso.get()
+                        .load(getCoverImage(eventModel.content_html))
+                        .error(R.drawable.default_event)
+                        .into(holder.eventImage, object : Callback {
+                            override fun onSuccess() {
+                                //
+                            }
+                            override fun onError(e: Exception?) {
+                                Log.e("Error Loading Image: ", e.toString())
+                            }
+                        })
+                }
+
+            } catch (e: Exception) {
+                e.message?.let { Log.e("Error", it) }
+            }
         }
     }
 

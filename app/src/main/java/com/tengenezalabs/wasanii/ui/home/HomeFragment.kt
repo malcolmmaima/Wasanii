@@ -15,6 +15,8 @@ import com.tengenezalabs.wasanii.data.responses.Event
 import com.tengenezalabs.wasanii.data.respository.APIResource
 import com.tengenezalabs.wasanii.databinding.HomeFragmentBinding
 import com.tengenezalabs.wasanii.ui.main.MainActivity
+import com.tengenezalabs.wasanii.utils.fetchFrom
+import com.tengenezalabs.wasanii.utils.handleApiError
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,8 +26,6 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
     private lateinit var viewModel: HomeViewModel
     private lateinit var binding: HomeFragmentBinding
-
-    private val fetchFrom = "https://nairobinow.wordpress.com/feed/"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,7 +58,7 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
-        (activity as MainActivity).supportActionBar?.title = "Home"
+        (activity as MainActivity).supportActionBar?.title = "Arts, culture and events"
 
         viewModel.getEvents(fetchFrom)
 
@@ -83,18 +83,29 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
                     }
 
                     //Setup RecyclerView
-                    var eventsAdapter = EventsAdapter(requireActivity(), events)
-                    binding.recyclerView.itemAnimator = DefaultItemAnimator()
-                    binding.recyclerView.adapter = eventsAdapter
+                    try {
+                        var eventsAdapter = EventsAdapter(requireActivity(), events)
+                        binding.recyclerView.itemAnimator = DefaultItemAnimator()
+                        binding.recyclerView.adapter = eventsAdapter
+                    } catch (e: Exception) {
+                        Log.d("HomeFragment", "Error: ${e.message}")
+                    }
+
                 }
 
                 is APIResource.Loading -> {
                     binding.swipeContainer.isRefreshing = true
-                    Log.d("HomeFragment", "Loading...")
+                    events.clear()
                 }
 
                 is APIResource.Error -> {
+                    binding.root.handleApiError(it)
                     binding.swipeContainer.isRefreshing = false
+                    showEmptyState(View.VISIBLE)
+                    events.clear()
+                    var eventsAdapter = EventsAdapter(requireActivity(), events)
+                    binding.recyclerView.itemAnimator = DefaultItemAnimator()
+                    binding.recyclerView.adapter = eventsAdapter
                     Log.d("HomeFragment", "Error: $it")
                 }
             }
