@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.tengenezalabs.wasanii.R
+import com.tengenezalabs.wasanii.ui.main.MainActivity
 
 class NotificationsFragment : Fragment() {
 
@@ -26,6 +27,9 @@ class NotificationsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(NotificationsViewModel::class.java)
+
+        (activity as MainActivity).supportActionBar?.title = "Notifications"
+
         // TODO: Use the ViewModel
     }
 
