@@ -7,14 +7,159 @@
     android:orientation="vertical"
     tools:context=".ui.main.MainActivity">
 
+    <HorizontalScrollView
+        android:id="@+id/categories_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/artExhibitsBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:text="@string/art_exhibits"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:gravity="center"
+                android:background="@drawable/round_shape_inactive_btn"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/concertsBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:text="@string/concerts"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:gravity="center"
+                android:background="@drawable/round_shape_inactive_btn"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/partiesBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:text="Parties"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:gravity="center"
+                android:background="@drawable/round_shape_inactive_btn"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/moviesBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:text="@string/movies"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:gravity="center"
+                android:background="@drawable/round_shape_inactive_btn"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/playsBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:text="@string/plays"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:gravity="center"
+                android:background="@drawable/round_shape_inactive_btn"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/charityBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:text="@string/charity"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:gravity="center"
+                android:background="@drawable/round_shape_inactive_btn"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/openmicBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:text="@string/open_mic"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:gravity="center"
+                android:background="@drawable/round_shape_inactive_btn"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/festivalsBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:text="@string/festivals"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:gravity="center"
+                android:background="@drawable/round_shape_inactive_btn"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/lecturesBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:text="@string/lectures"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:gravity="center"
+                android:background="@drawable/round_shape_inactive_btn"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/fashionBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:text="Fashion"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:gravity="center"
+                android:background="@drawable/round_shape_inactive_btn"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/classesBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:text="Classes"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:gravity="center"
+                android:background="@drawable/round_shape_inactive_btn"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/outoftownBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:text="@string/out_of_town"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:gravity="center"
+                android:background="@drawable/round_shape_inactive_btn"
+                />
+        </LinearLayout>
+    </HorizontalScrollView>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="60dp"
+        android:layout_below="@id/categories_scroll_view"
         >
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"

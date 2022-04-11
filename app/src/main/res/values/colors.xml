@@ -5,4 +5,10 @@
     <color name="colorSecondary">#e6e7eb</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gradient_start">#8C8A8A</color>
+    <color name="gradient_center">#828283</color>
+    <color name="gradient_end">#676363</color>
+    <color name="gradient_start_active">#FFA6AA</color>
+    <color name="gradient_center_active">#FD787E</color>
+    <color name="gradient_end_active">#FD666D</color>
 </resources>

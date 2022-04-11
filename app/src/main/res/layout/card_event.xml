@@ -7,6 +7,7 @@
     card_view:cardCornerRadius="8dp">
 
     <LinearLayout
+        android:id="@+id/card_view_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -50,5 +51,12 @@
             </FrameLayout>
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/postedOnTV"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="posted on: today"
+            />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -18,6 +18,8 @@ import com.tengenezalabs.wasanii.R
 import com.tengenezalabs.wasanii.data.models.responses.Event
 import org.jsoup.Jsoup
 import java.lang.Exception
+import java.text.SimpleDateFormat
+import java.util.*
 
 class EventsAdapter(context: Context, listdata: List<Event>) :
     RecyclerView.Adapter<EventsAdapter.MyHolder>() {
@@ -46,6 +48,7 @@ class EventsAdapter(context: Context, listdata: List<Event>) :
              * Set widget values
              */
             holder.eventTitle.text = eventModel.title
+            holder.postedOn.text = "Posted on: ${formatTime(eventModel.pubDate)}"
 
             /**
              * Click listener on our card
@@ -109,16 +112,29 @@ class EventsAdapter(context: Context, listdata: List<Event>) :
     inner class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var eventImage: ImageView
         var eventTitle: TextView
+        var postedOn: TextView
         var cardView: CardView
 
         init {
             eventImage = itemView.findViewById(R.id.eventImage)
             cardView = itemView.findViewById(R.id.card_view)
             eventTitle = itemView.findViewById(R.id.eventTitleTV)
+            postedOn = itemView.findViewById(R.id.postedOnTV)
 
             //Long Press
             itemView.setOnLongClickListener { false }
         }
     }
 
+    /**
+     * a function that takes a date in format 2022-04-09 03:43:35 and return in format Saturday, April 9, 2022
+     */
+    fun formatTime(date: String): String {
+        val dateFormat = "yyyy-MM-dd HH:mm:ss"
+        val sdf = SimpleDateFormat(dateFormat, Locale.getDefault())
+        val dateObj = sdf.parse(date)
+        val newFormat = "EEEE, MMMM d, yyyy"
+        val finalDate = SimpleDateFormat(newFormat, Locale.getDefault())
+        return finalDate.format(dateObj)
+    }
 }

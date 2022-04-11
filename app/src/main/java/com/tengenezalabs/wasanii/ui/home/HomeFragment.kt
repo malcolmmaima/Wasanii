@@ -46,10 +46,88 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         binding.swipeContainer.post {
             events.clear()
         }
+        /**
+         * Category buttons
+         */
+        binding.artExhibitsBTN.setOnClickListener {
+            setButtonBackground(binding.artExhibitsBTN)
+            viewModel.getEvents(fetchFromCategory("art-exhibits"), apiKey, count)
+        }
+        binding.concertsBTN.setOnClickListener {
+            setButtonBackground(binding.concertsBTN)
+            viewModel.getEvents(fetchFromCategory("concerts"), apiKey, count)
+        }
+        binding.partiesBTN.setOnClickListener {
+            setButtonBackground(binding.partiesBTN)
+            viewModel.getEvents(fetchFromCategory("parties"), apiKey, count)
+        }
+        binding.moviesBTN.setOnClickListener {
+            setButtonBackground(binding.moviesBTN)
+            viewModel.getEvents(fetchFromCategory("movies"), apiKey, count)
+        }
+        binding.playsBTN.setOnClickListener {
+            setButtonBackground(binding.playsBTN)
+            viewModel.getEvents(fetchFromCategory("theater-performances"), apiKey, count)
+        }
+        binding.charityBTN.setOnClickListener {
+            setButtonBackground(binding.charityBTN)
+            viewModel.getEvents(fetchFromCategory("charity"), apiKey, count)
+        }
+        binding.openmicBTN.setOnClickListener {
+            setButtonBackground(binding.openmicBTN)
+            viewModel.getEvents(fetchFromCategory("open-mic-2"), apiKey, count)
+        }
+        binding.festivalsBTN.setOnClickListener {
+            setButtonBackground(binding.festivalsBTN)
+            viewModel.getEvents(fetchFromCategory("festival"), apiKey, count)
+        }
+        binding.lecturesBTN.setOnClickListener {
+            setButtonBackground(binding.lecturesBTN)
+            viewModel.getEvents(fetchFromCategory("lectures-readings"), apiKey, count)
+        }
+        binding.fashionBTN.setOnClickListener {
+            setButtonBackground(binding.fashionBTN)
+            viewModel.getEvents(fetchFromCategory("fashion"), apiKey, count)
+        }
+        binding.classesBTN.setOnClickListener {
+            setButtonBackground(binding.classesBTN)
+            viewModel.getEvents(fetchFromCategory("classes"), apiKey, count)
+        }
+        binding.outoftownBTN.setOnClickListener {
+            setButtonBackground(binding.outoftownBTN)
+            viewModel.getEvents(fetchFromCategory("out-of-town"), apiKey, count)
+        }
+        /**
+         * Category buttons
+         */
 
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
 
         return binding.root
+    }
+
+    private fun fetchFromCategory(category: String): String {
+        var fetchFrom_ = fetchFrom
+        fetchFrom_ = fetchFrom_.replaceBeforeLast("/feed", "category/$category")
+        fetchFrom_ = fetchFrom.replaceAfterLast(".com/", fetchFrom_)
+        return fetchFrom_
+    }
+
+    private fun setButtonBackground(button: View) {
+        binding.artExhibitsBTN.setBackgroundResource(R.drawable.round_shape_inactive_btn)
+        binding.concertsBTN.setBackgroundResource(R.drawable.round_shape_inactive_btn)
+        binding.partiesBTN.setBackgroundResource(R.drawable.round_shape_inactive_btn)
+        binding.moviesBTN.setBackgroundResource(R.drawable.round_shape_inactive_btn)
+        binding.playsBTN.setBackgroundResource(R.drawable.round_shape_inactive_btn)
+        binding.charityBTN.setBackgroundResource(R.drawable.round_shape_inactive_btn)
+        binding.openmicBTN.setBackgroundResource(R.drawable.round_shape_inactive_btn)
+        binding.festivalsBTN.setBackgroundResource(R.drawable.round_shape_inactive_btn)
+        binding.lecturesBTN.setBackgroundResource(R.drawable.round_shape_inactive_btn)
+        binding.fashionBTN.setBackgroundResource(R.drawable.round_shape_inactive_btn)
+        binding.classesBTN.setBackgroundResource(R.drawable.round_shape_inactive_btn)
+        binding.outoftownBTN.setBackgroundResource(R.drawable.round_shape_inactive_btn)
+
+        button.setBackgroundResource(R.drawable.round_shape_active_btn)
     }
 
     private fun showEmptyState(visible: Int) {

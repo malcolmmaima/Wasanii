@@ -14,4 +14,13 @@
     <string name="menu_search">Search</string>
     <string name="menu_notifications">Notifications</string>
     <string name="menu_profile">Profile</string>
+    <string name="art_exhibits">Art Exhibits</string>
+    <string name="concerts">Concerts</string>
+    <string name="movies">Movies</string>
+    <string name="plays">Plays</string>
+    <string name="charity">Charity</string>
+    <string name="open_mic">Open Mic</string>
+    <string name="festivals">Festivals</string>
+    <string name="lectures">Lectures</string>
+    <string name="out_of_town">Out of town</string>
 </resources>
