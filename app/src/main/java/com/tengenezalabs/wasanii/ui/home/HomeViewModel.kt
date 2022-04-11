@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tengenezalabs.wasanii.data.responses.EventsResponse
+import com.tengenezalabs.wasanii.data.models.responses.EventsResponse
 import com.tengenezalabs.wasanii.data.respository.APIResource
 import com.tengenezalabs.wasanii.data.respository.EventsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel

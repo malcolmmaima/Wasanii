@@ -1,7 +1,7 @@
 package com.tengenezalabs.wasanii.data.respository
 
 import com.tengenezalabs.wasanii.data.api.EventsApi
-import com.tengenezalabs.wasanii.data.responses.EventsResponse
+import com.tengenezalabs.wasanii.data.models.responses.EventsResponse
 import javax.inject.Inject
 
 interface EventsRepository {

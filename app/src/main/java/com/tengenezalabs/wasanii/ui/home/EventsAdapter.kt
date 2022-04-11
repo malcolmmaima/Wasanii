@@ -12,15 +12,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import com.tengenezalabs.wasanii.R
-import com.tengenezalabs.wasanii.data.responses.Event
-import com.tengenezalabs.wasanii.utils.BASE_URL
+import com.tengenezalabs.wasanii.data.models.responses.Event
 import org.jsoup.Jsoup
-import org.w3c.dom.Document
-import org.w3c.dom.Element
 import java.lang.Exception
 
 class EventsAdapter(context: Context, listdata: List<Event>) :
@@ -63,11 +59,11 @@ class EventsAdapter(context: Context, listdata: List<Event>) :
              */
 
             try {
-                if(getCoverImage(eventModel.content_html).isNullOrBlank()) {
+                if(eventModel.thumbnail.isNullOrBlank()) {
                     holder.eventImage.setImageResource(R.drawable.default_event)
                 } else {
                     Picasso.get()
-                        .load(getCoverImage(eventModel.content_html))
+                        .load(eventModel.thumbnail)
                         .error(R.drawable.default_event)
                         .into(holder.eventImage, object : Callback {
                             override fun onSuccess() {
@@ -82,22 +78,6 @@ class EventsAdapter(context: Context, listdata: List<Event>) :
             } catch (e: Exception) {
                 e.message?.let { Log.e("Error", it) }
             }
-        }
-    }
-
-    /** receives content_htmland e.g.
-     * "<figure class=\"wp-block-image size-large\"><a href=\"https://nairobinow.files.wordpress.com/2022/03/blowing-in-the-wind-ow.jpg\"><img data-attachment-id=\"40798\" data-permalink=\"https://nairobinow.wordpress.com/blowing-in-the-wind-ow/\" data-orig-file=\"https://nairobinow.files.wordpress.com/2022/03/blowing-in-the-wind-ow.jpg\" data-orig-size=\"800,558\" data-comments-opened=\"1\" data-image-meta=\"{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}\" data-image-title=\"blowing-in-the-wind-ow\" data-image-description=\"\" data-image-caption=\"\" data-medium-file=\"https://nairobinow.files.wordpress.com/2022/03/blowing-in-the-wind-ow.jpg?w=300\" data-large-file=\"https://nairobinow.files.wordpress.com/2022/03/blowing-in-the-wind-ow.jpg?w=455\" src=\"https://nairobinow.files.wordpress.com/2022/03/blowing-in-the-wind-ow.jpg?w=800\" alt=\"\" class=\"wp-image-40798\" srcset=\"https://nairobinow.files.wordpress.com/2022/03/blowing-in-the-wind-ow.jpg 800w, https://nairobinow.files.wordpress.com/2022/03/blowing-in-the-wind-ow.jpg?w=150 150w, https://nairobinow.files.wordpress.com/2022/03/blowing-in-the-wind-ow.jpg?w=300 300w, https://nairobinow.files.wordpress.com/2022/03/blowing-in-the-wind-ow.jpg?w=768 768w\" sizes=\"(max-width: 800px) 100vw, 800px\" /></a><figcaption>Image via the Gallery.</figcaption></figure>\n\n\n\n<p>Opening: Sunday 27th March 2022 </p>\n\n\n\n<p>Venue: Red Hill Art Gallery</p>\n\n\n\n<p>Time: from 11.00 am to 5.00 pm.<br><br>The exhibition is on view until 8th May 2022.</p>"
-     * and returns value of data-large-file
-     */
-    private fun getCoverImage(contentHtml: String): String {
-        return try {
-            val doc: org.jsoup.nodes.Document? = Jsoup.parse(contentHtml)
-            val img: org.jsoup.nodes.Element? = doc!!.select("img").first()
-            val src: String = img!!.attr("data-medium-file")
-            src
-        } catch (e: Exception) {
-            Log.e("Error: ", e.toString())
-            ""
         }
     }
 

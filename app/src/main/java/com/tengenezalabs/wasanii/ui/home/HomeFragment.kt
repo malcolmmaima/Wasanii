@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.tengenezalabs.wasanii.R
-import com.tengenezalabs.wasanii.data.responses.Event
+import com.tengenezalabs.wasanii.data.models.responses.Event
 import com.tengenezalabs.wasanii.data.respository.APIResource
 import com.tengenezalabs.wasanii.databinding.HomeFragmentBinding
 import com.tengenezalabs.wasanii.ui.main.MainActivity

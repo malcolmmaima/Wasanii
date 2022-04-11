@@ -8,7 +8,7 @@ import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.tengenezalabs.wasanii.data.respository.APIResource
 
-const val BASE_URL = "https://www.toptal.com/developers/feed2json/"
+const val BASE_URL = "https://api.rss2json.com/v1/"
 const val fetchFrom = "https://nairobinow.wordpress.com/feed/"
 
 fun isNetworkAvailable(context: Context): Boolean {
