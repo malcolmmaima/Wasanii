@@ -15,6 +15,7 @@ import com.tengenezalabs.wasanii.data.models.responses.Event
 import com.tengenezalabs.wasanii.data.respository.APIResource
 import com.tengenezalabs.wasanii.databinding.HomeFragmentBinding
 import com.tengenezalabs.wasanii.ui.main.MainActivity
+import com.tengenezalabs.wasanii.utils.apiKey
 import com.tengenezalabs.wasanii.utils.fetchFrom
 import com.tengenezalabs.wasanii.utils.handleApiError
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,6 +27,7 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
     private lateinit var viewModel: HomeViewModel
     private lateinit var binding: HomeFragmentBinding
+    private val count = 20
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,7 +62,7 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
         (activity as MainActivity).supportActionBar?.title = "Arts, culture and events"
 
-        viewModel.getEvents(fetchFrom)
+        viewModel.getEvents(fetchFrom, apiKey, count)
 
         viewModel.events.observe(viewLifecycleOwner) { it ->
             when (it) {
@@ -114,7 +116,7 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
     private fun fetchEvents() {
         events.clear()
-        viewModel.getEvents(fetchFrom)
+        viewModel.getEvents(fetchFrom, apiKey, count)
     }
 
     override fun onRefresh() {

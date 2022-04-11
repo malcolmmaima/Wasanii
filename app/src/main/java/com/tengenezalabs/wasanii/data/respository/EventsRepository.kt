@@ -5,7 +5,7 @@ import com.tengenezalabs.wasanii.data.models.responses.EventsResponse
 import javax.inject.Inject
 
 interface EventsRepository {
-    suspend fun getEvents(fetchFrom: String): APIResource<EventsResponse>
+    suspend fun getEvents(fetchFrom: String, apiKey: String, count: Int): APIResource<EventsResponse>
 }
 
 class EventsRepositoryImpl @Inject constructor(
@@ -13,7 +13,7 @@ class EventsRepositoryImpl @Inject constructor(
 ) : EventsRepository, BaseRepo() {
 
 
-    override suspend fun getEvents(fetchFrom: String) = safeApiCall {
-        eventsApi.getEvents(fetchFrom)
+    override suspend fun getEvents(fetchFrom: String, apiKey: String, count: Int) = safeApiCall {
+        eventsApi.getEvents(fetchFrom, apiKey, count)
     }
 }

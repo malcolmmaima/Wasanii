@@ -8,6 +8,8 @@ interface EventsApi {
 
     @HTTP(method = "GET", path = "api.json", hasBody = false)
     suspend fun getEvents(
-        @Query("rss_url")fetchFrom: String
+        @Query("rss_url")fetchFrom: String,
+        @Query("api_key")apiKey: String,
+        @Query("count")count: Int
     ) : EventsResponse
 }

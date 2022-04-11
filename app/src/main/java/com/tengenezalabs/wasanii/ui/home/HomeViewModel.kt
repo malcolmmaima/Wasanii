@@ -20,9 +20,9 @@ class HomeViewModel @Inject constructor(
     val events: LiveData<APIResource<EventsResponse>>
         get() = _events
 
-    fun getEvents(fetchFrom: String) = viewModelScope.launch {
+    fun getEvents(fetchFrom: String, apiKey: String, count: Int) = viewModelScope.launch {
         _events.value = APIResource.Loading
-        _events.value = repository.getEvents(fetchFrom)
+        _events.value = repository.getEvents(fetchFrom, apiKey, count)
     }
 
 }

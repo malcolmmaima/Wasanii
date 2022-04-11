@@ -10,6 +10,7 @@ import com.tengenezalabs.wasanii.data.respository.APIResource
 
 const val BASE_URL = "https://api.rss2json.com/v1/"
 const val fetchFrom = "https://nairobinow.wordpress.com/feed/"
+const val apiKey = "eb0w267akvfdrgpwrcppbiepe8exqejorib67ssr"
 
 fun isNetworkAvailable(context: Context): Boolean {
     val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
