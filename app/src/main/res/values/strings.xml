@@ -24,4 +24,6 @@
     <string name="lectures">Lectures</string>
     <string name="out_of_town">Out of town</string>
     <string name="all">All</string>
+    <string name="event_title">Event Title</string>
+    <string name="posted_on_today">posted on: today</string>
 </resources>

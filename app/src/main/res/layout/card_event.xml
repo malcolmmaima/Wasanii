@@ -43,9 +43,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="16dp"
-                        android:textSize="15dp"
+                        android:textSize="15sp"
                         android:textColor="#FFFFFF"
-                        android:text="Event Title"
+                        android:text="@string/event_title"
                         android:textStyle="bold" />
                 </LinearLayout>
             </FrameLayout>
@@ -56,7 +56,7 @@
             android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="posted on: today"
+            android:text="@string/posted_on_today"
             />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
