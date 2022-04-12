@@ -19,6 +19,7 @@ import com.tengenezalabs.wasanii.utils.apiKey
 import com.tengenezalabs.wasanii.utils.fetchFrom
 import com.tengenezalabs.wasanii.utils.handleApiError
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
@@ -28,6 +29,7 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
     private lateinit var viewModel: HomeViewModel
     private lateinit var binding: HomeFragmentBinding
     private val count = 20
+    private var fetchFromURL = fetchFrom
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -107,10 +109,9 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
     }
 
     private fun fetchFromCategory(category: String): String {
-        var fetchFrom_ = fetchFrom
-        fetchFrom_ = fetchFrom_.replaceBeforeLast("/feed", "category/$category")
-        fetchFrom_ = fetchFrom.replaceAfterLast(".com/", fetchFrom_)
-        return fetchFrom_
+        fetchFromURL = fetchFromURL.replaceBeforeLast("/feed", "category/$category")
+        fetchFromURL = fetchFrom.replaceAfterLast(".com/", fetchFromURL)
+        return fetchFromURL
     }
 
     private fun setButtonBackground(button: View) {
@@ -155,16 +156,19 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
                     Log.d("HomeFragment", "Success: ${it}")
 
-                    if (events.size == 0) {
-                        showEmptyState(View.VISIBLE)
+                    //filter events by only showing events whose pubDate is from this year
+                    val currentYear = Calendar.getInstance().get(Calendar.YEAR).toString()
+                    val filteredEvents = events.filter { it.pubDate.contains(currentYear) }
 
+                    if (filteredEvents.isEmpty()) {
+                        showEmptyState(View.VISIBLE)
                     } else {
                         showEmptyState(View.GONE)
                     }
 
                     //Setup RecyclerView
                     try {
-                        var eventsAdapter = EventsAdapter(requireActivity(), events)
+                        var eventsAdapter = EventsAdapter(requireActivity(), filteredEvents)
                         binding.recyclerView.itemAnimator = DefaultItemAnimator()
                         binding.recyclerView.adapter = eventsAdapter
                     } catch (e: Exception) {
@@ -194,7 +198,7 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
     private fun fetchEvents() {
         events.clear()
-        viewModel.getEvents(fetchFrom, apiKey, count)
+        viewModel.getEvents(fetchFromURL, apiKey, count)
     }
 
     override fun onRefresh() {
