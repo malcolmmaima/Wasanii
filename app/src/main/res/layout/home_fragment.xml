@@ -19,6 +19,17 @@
             >
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/allBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:text="@string/all"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:gravity="center"
+                android:background="@drawable/round_shape_inactive_btn"
+                />
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/artExhibitsBTN"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"

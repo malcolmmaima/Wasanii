@@ -51,6 +51,12 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         /**
          * Category buttons
          */
+        setButtonBackground(binding.allBTN)
+
+        binding.allBTN.setOnClickListener {
+            setButtonBackground(binding.allBTN)
+            viewModel.getEvents(fetchFrom, apiKey, count)
+        }
         binding.artExhibitsBTN.setOnClickListener {
             setButtonBackground(binding.artExhibitsBTN)
             viewModel.getEvents(fetchFromCategory("art-exhibits"), apiKey, count)
@@ -115,6 +121,7 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
     }
 
     private fun setButtonBackground(button: View) {
+        binding.allBTN.setBackgroundResource(R.drawable.round_shape_inactive_btn)
         binding.artExhibitsBTN.setBackgroundResource(R.drawable.round_shape_inactive_btn)
         binding.concertsBTN.setBackgroundResource(R.drawable.round_shape_inactive_btn)
         binding.partiesBTN.setBackgroundResource(R.drawable.round_shape_inactive_btn)
