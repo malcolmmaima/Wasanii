@@ -29,7 +29,7 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
     private lateinit var viewModel: HomeViewModel
     private lateinit var binding: HomeFragmentBinding
     private val count = 20
-    private var fetchFromURL = fetchFrom
+    private var fetchFromURL = fetchFrom[0]
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,7 +55,7 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
         binding.allBTN.setOnClickListener {
             setButtonBackground(binding.allBTN)
-            viewModel.getEvents(fetchFrom, apiKey, count)
+            viewModel.getEvents(fetchFrom[0], apiKey, count)
         }
         binding.artExhibitsBTN.setOnClickListener {
             setButtonBackground(binding.artExhibitsBTN)
@@ -116,7 +116,7 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
     private fun fetchFromCategory(category: String): String {
         fetchFromURL = fetchFromURL.replaceBeforeLast("/feed", "category/$category")
-        fetchFromURL = fetchFrom.replaceAfterLast(".com/", fetchFromURL)
+        fetchFromURL = fetchFrom[0].replaceAfterLast(".com/", fetchFromURL)
         return fetchFromURL
     }
 
@@ -148,7 +148,7 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
         (activity as MainActivity).supportActionBar?.title = "Arts, culture and events"
 
-        viewModel.getEvents(fetchFrom, apiKey, count)
+        viewModel.getEvents(fetchFrom[0], apiKey, count)
 
         viewModel.events.observe(viewLifecycleOwner) { it ->
             when (it) {

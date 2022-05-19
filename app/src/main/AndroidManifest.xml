@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tengenezalabs.wasanii" >
+    package="com.tengenezalabs.wasanii">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,7 +12,12 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Wasanii.NoActionBar" >
+        android:theme="@style/Theme.Wasanii.NoActionBar">
+        <activity
+            android:name=".ui.viewevent.ViewEvent"
+            android:exported="false"
+            android:label="@string/title_activity_view_event"
+            android:theme="@style/Theme.Wasanii.NoActionBar.NoActionBar" />
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="false" />

@@ -9,7 +9,13 @@ import com.google.gson.JsonObject
 import com.tengenezalabs.wasanii.data.respository.APIResource
 
 const val BASE_URL = "https://api.rss2json.com/v1/"
-const val fetchFrom = "https://nairobinow.wordpress.com/feed/"
+//a variable called fetchFrom array containing a list of urls
+val fetchFrom = arrayOf(
+    "https://nairobinow.wordpress.com/feed/",
+    "https://www.example.com/feed/",
+)
+
+
 const val apiKey = "eb0w267akvfdrgpwrcppbiepe8exqejorib67ssr"
 
 fun isNetworkAvailable(context: Context): Boolean {

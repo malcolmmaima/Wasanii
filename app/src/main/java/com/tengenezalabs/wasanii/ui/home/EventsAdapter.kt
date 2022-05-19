@@ -3,6 +3,7 @@ package com.tengenezalabs.wasanii.ui.home
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,7 @@ import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import com.tengenezalabs.wasanii.R
 import com.tengenezalabs.wasanii.data.models.responses.Event
+import com.tengenezalabs.wasanii.ui.viewevent.ViewEvent
 import org.jsoup.Jsoup
 import java.lang.Exception
 import java.text.SimpleDateFormat
@@ -80,7 +82,10 @@ class EventsAdapter(context: Context, listdata: List<Event>) :
              * Click listener on our card
              */
             holder.cardView.setOnClickListener {
-                Toast.makeText(context, eventModel.title, Toast.LENGTH_SHORT).show()
+                //navigate to ViewEvent Activity
+                val intent = Intent(context, ViewEvent::class.java)
+                intent.putExtra("event", eventModel.link)
+                context.startActivity(intent)
             }
 
             /**
