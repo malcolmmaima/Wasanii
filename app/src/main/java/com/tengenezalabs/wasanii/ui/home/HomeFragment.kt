@@ -178,6 +178,10 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
                         var eventsAdapter = EventsAdapter(requireActivity(), filteredEvents)
                         binding.recyclerView.itemAnimator = DefaultItemAnimator()
                         binding.recyclerView.adapter = eventsAdapter
+                        eventsAdapter.saveData(filteredEvents)
+                        binding.recyclerView.scrollToPosition(
+                            0
+                        )
                     } catch (e: Exception) {
                         Log.d("HomeFragment", "Error: ${e.message}")
                     }

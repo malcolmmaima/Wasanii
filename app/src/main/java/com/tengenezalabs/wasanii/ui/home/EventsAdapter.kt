@@ -11,6 +11,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
@@ -34,6 +36,30 @@ class EventsAdapter(context: Context, listdata: List<Event>) :
         val view: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.card_event, parent, false)
         return MyHolder(view)
+    }
+
+    private val diffUtil = object : DiffUtil.ItemCallback<Event>() {
+        override fun areItemsTheSame(
+            oldItem: Event,
+            newItem: Event
+        ): Boolean {
+            return oldItem.guid == newItem.guid
+
+        }
+
+        override fun areContentsTheSame(
+            oldItem: Event,
+            newItem: Event
+        ): Boolean {
+            return oldItem == newItem
+        }
+
+    }
+
+    private val asyncListDiffer = AsyncListDiffer(this, diffUtil)
+
+    fun saveData(usersResponse: List<Event>) {
+        asyncListDiffer.submitList(usersResponse)
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
