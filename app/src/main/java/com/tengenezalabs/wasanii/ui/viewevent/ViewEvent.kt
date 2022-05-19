@@ -37,7 +37,12 @@ class ViewEvent : AppCompatActivity() {
             finish()
         }
 
-        binding.fab.setOnClickListener { view ->
+        binding.fabFavourite.setOnClickListener { view ->
+            Snackbar.make(view, "In Development...", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+        }
+
+        binding.fabShare.setOnClickListener { view ->
             Snackbar.make(view, "In Development...", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
