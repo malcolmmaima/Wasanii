@@ -15,6 +15,7 @@ import com.tengenezalabs.wasanii.data.models.responses.Event
 import com.tengenezalabs.wasanii.data.respository.APIResource
 import com.tengenezalabs.wasanii.databinding.HomeFragmentBinding
 import com.tengenezalabs.wasanii.ui.main.MainActivity
+import com.tengenezalabs.wasanii.ui.viewevent.EventsAdapter
 import com.tengenezalabs.wasanii.utils.apiKey
 import com.tengenezalabs.wasanii.utils.fetchFrom
 import com.tengenezalabs.wasanii.utils.handleApiError
@@ -161,7 +162,7 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
                         events.add(it)
                     }
 
-                    Log.d("HomeFragment", "Success: ${it}")
+                    //Log.d("HomeFragment", "Success: ${it}")
 
                     //filter events by only showing events whose pubDate is from this year
                     val currentYear = Calendar.getInstance().get(Calendar.YEAR).toString()

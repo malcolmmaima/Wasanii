@@ -1,4 +1,4 @@
-package com.tengenezalabs.wasanii.ui.home
+package com.tengenezalabs.wasanii.ui.viewevent
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -10,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -19,8 +18,6 @@ import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import com.tengenezalabs.wasanii.R
 import com.tengenezalabs.wasanii.data.models.responses.Event
-import com.tengenezalabs.wasanii.ui.viewevent.ViewEvent
-import org.jsoup.Jsoup
 import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
@@ -82,9 +79,14 @@ class EventsAdapter(context: Context, listdata: List<Event>) :
              * Click listener on our card
              */
             holder.cardView.setOnClickListener {
-                //navigate to ViewEvent Activity
                 val intent = Intent(context, ViewEvent::class.java)
-                intent.putExtra("event", eventModel.link)
+                intent.putExtra("eventTitle", eventModel.title)
+                intent.putExtra("eventDescription", eventModel.description)
+                intent.putExtra("eventContent", eventModel.content)
+                intent.putExtra("eventImage", eventModel.thumbnail)
+                intent.putExtra("eventLink", eventModel.link)
+                intent.putExtra("eventPubDate", eventModel.pubDate)
+
                 context.startActivity(intent)
             }
 
