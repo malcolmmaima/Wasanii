@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.tengenezalabs.wasanii.R
 import com.tengenezalabs.wasanii.databinding.ActivitySplashBinding
 import com.tengenezalabs.wasanii.utils.isNetworkAvailable
@@ -36,7 +37,7 @@ class SplashActivity : AppCompatActivity() {
             binding.progressBar.visibility = View.GONE
 
             GlobalScope.launch {
-                delay(15000)
+                delay(10000)
                 if(!isNetworkAvailable(this@SplashActivity)){
                     binding.root.snackbar(getString(R.string.no_internet_connection))
                 }else{
@@ -45,7 +46,12 @@ class SplashActivity : AppCompatActivity() {
             }
 
         } else {
-            loadMainActivity()
+            lifecycleScope.launch {
+                delay(3000)
+                runOnUiThread {
+                    loadMainActivity()
+                }
+            }
         }
     }
 

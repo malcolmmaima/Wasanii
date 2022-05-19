@@ -8,10 +8,10 @@
     <item android:title="Search"
         android:id="@+id/nav_search"
         android:icon="@drawable/ic_baseline_search_24"/>
-    <item android:title="Notifications"
-        android:id="@+id/nav_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"/>
-    <item android:title="Profile"
-        android:id="@+id/nav_profile"
-        android:icon="@drawable/ic_baseline_account_circle_24"/>
+<!--    <item android:title="Notifications"-->
+<!--        android:id="@+id/nav_notifications"-->
+<!--        android:icon="@drawable/ic_notifications_black_24dp"/>-->
+<!--    <item android:title="Profile"-->
+<!--        android:id="@+id/nav_profile"-->
+<!--        android:icon="@drawable/ic_baseline_account_circle_24"/>-->
 </menu>
