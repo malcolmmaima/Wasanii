@@ -13,8 +13,6 @@ This a simple events app that focuses on arts and culture. Due to my interest in
 
 * [Permissions](#permissions)
 
-* [Run Project](#run-project)
-
 * [Installation](#installation)
 
 * [Dependencies](#dependencies)
@@ -54,9 +52,6 @@ The app uses the MVVM architecture: A comprehensive architecture design is still
 ## Permissions
 You need to allow the following permissions before running the app:
 - Internet
-
-## Run Project
-You can check out the compiled version of the app here: [appetize](https://appetize.io/#howitworks)
 
 ## Installation
 Clone the project
