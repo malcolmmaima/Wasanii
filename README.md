@@ -42,12 +42,11 @@ The app has the following key features:
 ## General Preview
 More designs coming soon...
 
-<a href="url"><img src=https://user-images.githubusercontent.com/3639153/170243811-54501f2a-a4a7-4fd1-b83b-6faf7378f7b3.png height="550"  ></a>
-<a href="url"><img src=https://user-images.githubusercontent.com/3639153/170243817-1953b139-2735-450c-b133-113fe3ad3c57.png height="550"  ></a>
-<a href="url"><img src=https://user-images.githubusercontent.com/3639153/170243825-c9fa9144-d612-4ccc-a248-d84f64f0acc0.png height="550"  ></a>
-<a href="url"><img src=https://user-images.githubusercontent.com/3639153/170243828-2484c590-580c-41d1-8a1b-a7fd2c59580d.png height="550"  ></a>
-<a href="url"><img src=https://user-images.githubusercontent.com/3639153/170243830-7e1e283e-14f8-4cde-a233-9b1074c99d9f.png height="550"  ></a>
-<a href="url"><img src=https://user-images.githubusercontent.com/3639153/170243834-3aa7c5cf-f285-4a47-8714-5751a2a20fdc.png height="550"  ></a>
+<a href="url"><img src=https://user-images.githubusercontent.com/3639153/170245470-e063b3cf-8da6-4447-80da-3ab557bf05c3.jpeg height="550"  ></a>
+<a href="url"><img src=https://user-images.githubusercontent.com/3639153/170245468-b9f97db3-0593-4a0e-bf1f-7087317dbccf.jpeg height="550"  ></a>
+<a href="url"><img src=https://user-images.githubusercontent.com/3639153/170245467-bedd959e-0453-458d-a7a0-9610bce0f259.jpeg height="550"  ></a>
+<a href="url"><img src=https://user-images.githubusercontent.com/3639153/170245465-0a2052f5-6583-41d5-8dde-534a3d2502db.jpeg height="550"  ></a>
+<a href="url"><img src=https://user-images.githubusercontent.com/3639153/170245458-6a045a58-a721-4599-9bd3-df0a79703d6e.jpeg height="550"  ></a>
 
 ## Architecture
 The app uses the MVVM architecture: A comprehensive architecture design is still WIP.
