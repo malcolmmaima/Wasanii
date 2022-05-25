@@ -60,7 +60,7 @@ Run the app on your emulator or device
 
 - Picasso
 
-- Koin
+- Hilt
 
 - Coroutines
 
@@ -76,7 +76,7 @@ Run the app on your emulator or device
 
 - [x] Design Screens
 - [x] Implement the screens designs
-- [x] Consume Api and populate tasks lists.
+- [x] Consume Api and populate events lists.
 - [ ] Unit Testing
 - [ ] Deploy app on Playstore
 
