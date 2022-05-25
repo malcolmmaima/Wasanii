@@ -1,7 +1,3 @@
-# Wasanii Android App
-
-This a simple events app that focuses on arts and culture. Due to my interest in the arts, I decided to create an app that would help people to find events and venues around the city(Nairobi). It solves a problem for me in that I've always had a challenge trying to find events in the art space e.g. Art Exhibitions, Jazz Events, etc. I hope it solves the same problem I've had with others out there in search of similar events. Wasanii is swahili for "Artists" and I think it's a good name for the app.
-
 # Table Of Contents
 
 
@@ -27,15 +23,8 @@ This a simple events app that focuses on arts and culture. Due to my interest in
 
 * [License](#license)
 ## About the App
-The app has the following key features:
-- Login/Signup using OTP
-- User Access levels (Admin, manager, supervisor, associate, dispatcher, driver)
-- Warehouse Inventory
-- User management
-- Inventory Tracking
-- Order Fulfillment
-- A user can add new products to a specific warehouse
-- An admin can  view All Warehouses or Filter Warehouses
+
+This a simple events app that focuses on arts and culture. Due to my interest in the arts, I decided to create an app that would help people to find events and venues around the city(Nairobi). It solves a problem for me in that I've always had a challenge trying to find events in the art space e.g. Art Exhibitions, Jazz Events, etc. I hope it solves the same problem I've had with others out there in search of similar events. Wasanii is swahili for "Artists" and I think it's a good name for the app.
 
 ## General Preview
 More designs coming soon...
@@ -57,13 +46,12 @@ You need to allow the following permissions before running the app:
 Clone the project
 
 ```bash
-  git clone https://github.com/Ultra-Techies/ghala-android.git
+  git clone https://github.com/malcolmmaima/Wasanii.git
 ```
 
 Go to android studio compile and install dependencies
 
 Run the app on your emulator or device
-
 
 
 ## Dependencies
