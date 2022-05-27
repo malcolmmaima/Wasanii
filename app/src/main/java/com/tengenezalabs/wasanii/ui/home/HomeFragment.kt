@@ -56,6 +56,7 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
         binding.allBTN.setOnClickListener {
             setButtonBackground(binding.allBTN)
+            fetchFromURL = fetchFrom[0]
             viewModel.getEvents(fetchFrom[0], apiKey, count)
         }
         binding.artExhibitsBTN.setOnClickListener {
