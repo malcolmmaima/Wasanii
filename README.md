@@ -64,10 +64,6 @@ The app uses the MVVM architecture: A comprehensive architecture design is still
 - [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) - Storage of key-value pairs
 - [Mockito](https://github.com/mockito/mockito) -
 
-## Resources
-
-- [Some artile that helped](link)
-
 ## To Do List
 
 - [x] Design Screens
